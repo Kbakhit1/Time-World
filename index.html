@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خطة تطوير المبيعات - خالد بخيت</title>
+    <title>خطة استحواذ العيادات - خالد بخيت</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,25 +11,12 @@
 
     <style>
         /* 1. THE SETUP */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #e2e8f0; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; font-family: 'Cairo', sans-serif; }
 
-        body {
-            background-color: #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            padding: 40px 0;
-            font-family: 'Cairo', sans-serif; 
-        }
-
-        /* Base Slide Container - Dark Theme */
+        /* Base Slide Container */
         .slide-container {
-            background-color: #050505; /* Deep black */
+            background-color: #050505;
             background-image: radial-gradient(circle at top right, #111e11, #050505);
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -40,39 +27,20 @@
             padding: 50px 70px;
             position: relative;
             width: 1280px;
-            height: 720px; /* Fixed 720p height */
+            height: 720px;
             direction: rtl; 
         }
 
-        /* Decorative Line */
         .slide-container::after {
             background: rgba(222, 255, 154, 0.2);
-            bottom: 40px;
-            content: '';
-            height: 1px;
-            left: 70px;
-            position: absolute;
-            right: 70px;
+            bottom: 40px; content: ''; height: 1px; left: 70px; position: absolute; right: 70px;
         }
-        .slide-container.bleed-image-layout::after {
-            display: none; /* Hide line on image bleed slides */
-        }
+        .slide-container.bleed-image-layout::after { display: none; }
 
-        /* 2. CONSISTENT TYPOGRAPHY */
-        h1, h2, h3, h4 {
-            color: #f5f5f5;
-            font-weight: 700;
-        }
-
-        .slide-container h1 span,
-        .slide-container h2 span {
-            color: #deff9a; /* Neon Green */
-        }
-
-        p, li, .subtitle {
-            color: #daffde;
-            font-weight: 400;
-        }
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 { color: #f5f5f5; font-weight: 700; }
+        .slide-container h1 span, .slide-container h2 span { color: #deff9a; }
+        p, li, .subtitle { color: #daffde; font-weight: 400; }
 
         .slide-container h1 { font-size: 60px; line-height: 1.3; margin-bottom: 15px; }
         .slide-container .slide-title { font-size: 50px; line-height: 1.2; margin-bottom: 25px; }
@@ -80,221 +48,58 @@
         .slide-container p, .slide-container li { font-size: 20px; line-height: 1.7; }
         .slide-container .subtitle { font-size: 24px; line-height: 1.5; color: #a0aab2; }
 
-        /* Title Slide */
-        .title-layout {
-            text-align: center;
-            width: 100%;
-        }
+        /* Layouts */
+        .title-layout { text-align: center; width: 100%; }
+        .two-column { display: flex; gap: 60px; width: 100%; height: 100%; align-items: center; }
+        .content-container { display: flex; flex-direction: column; }
+        .image-container-rounded { height: 450px; overflow: hidden; border-radius: 20px; border: 1px solid #2a3a2a; }
+        .image-container-rounded img { height: 100%; width: 100%; object-fit: cover; }
 
-        /* Two Column Layout */
-        .two-column {
-            display: flex;
-            gap: 60px;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-        }
-
-        .content-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .image-container-rounded {
-            height: 450px;
-            overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid #2a3a2a;
-        }
-
-        .image-container-rounded img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        /* Bullet Lists */
-        .bullet-list {
-            list-style: none;
-        }
-        .bullet-list li {
-            padding-right: 35px;
-            position: relative;
-            margin-bottom: 20px;
-        }
+        /* Lists */
+        .bullet-list { list-style: none; }
+        .bullet-list li { padding-right: 35px; position: relative; margin-bottom: 20px; }
         .bullet-list li::before {
-            color: #deff9a;
-            content: '\f058';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 22px;
-            right: 0;
-            position: absolute;
-            top: 5px;
+            color: #deff9a; content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 22px; right: 0; position: absolute; top: 5px;
         }
 
-        /* Bleed Image Layout (RTL specific) */
-        .slide-container.bleed-image-layout {
-            flex-direction: row;
-            padding: 0;
-            align-items: stretch; /* Fill entire height */
-        }
-        .slide-container.bleed-image-layout > .content-container {
-            padding: 60px 50px 60px 70px;
-            width: 60%;
-            justify-content: center;
-        }
-        .slide-container.bleed-image-layout > .image-container {
-            width: 40%;
-            position: relative;
-        }
-        .slide-container.bleed-image-layout img.bleed-image-side {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top; /* Focus on top part/face */
-            display: block;
-        }
+        /* Bleed Image (RTL) */
+        .slide-container.bleed-image-layout { flex-direction: row; padding: 0; align-items: stretch; }
+        .slide-container.bleed-image-layout > .content-container { padding: 60px 50px 60px 70px; width: 60%; justify-content: center; }
+        .slide-container.bleed-image-layout > .image-container { width: 40%; position: relative; }
+        .slide-container.bleed-image-layout img.bleed-image-side { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
-        /* Tiled Layouts */
-        .slide-container.tile-layout .tiled-content {
-            display: grid;
-            gap: 25px;
-            grid-template-columns: 1fr 1fr;
-            width: 100%;
-        }
-
-        .slide-container .tile {
-            background-color: #121212;
-            border-radius: 16px;
-            border: 1px solid #222;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding: 30px;
-        }
-
-        .slide-container .tile .title-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .slide-container .tile .main-title {
-            color: #deff9a;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .slide-container .tile .icon-container {
-            align-items: center;
-            background-color: #deff9a;
-            border-radius: 50%;
-            color: #000;
-            display: flex;
-            font-size: 20px;
-            height: 50px;
-            justify-content: center;
-            width: 50px;
-            flex-shrink: 0;
-        }
-
-        .slide-container .tile .tile-content {
-            color: #daffde;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+        /* Tiled */
+        .slide-container.tile-layout .tiled-content { display: grid; gap: 25px; grid-template-columns: 1fr 1fr; width: 100%; }
+        .slide-container .tile { background-color: #121212; border-radius: 16px; border: 1px solid #222; display: flex; flex-direction: column; gap: 15px; padding: 30px; }
+        .slide-container .tile .title-container { display: flex; justify-content: space-between; align-items: center; }
+        .slide-container .tile .main-title { color: #deff9a; font-size: 24px; font-weight: 700; }
+        .slide-container .tile .icon-container { align-items: center; background-color: #deff9a; border-radius: 50%; color: #000; display: flex; font-size: 20px; height: 50px; justify-content: center; width: 50px; flex-shrink: 0; }
+        .slide-container .tile .tile-content { color: #daffde; font-size: 18px; line-height: 1.6; }
 
         /* Highlighted Numbers */
-        .highlight-numbers-layout {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        .highlight-numbers-layout > div:first-child {
-            flex: 0 0 35%;
-            text-align: center;
-        }
-        .highlight-numbers-layout .number {
-            color: #deff9a;
-            font-size: 150px;
-            font-weight: 700;
-            line-height: 1;
-        }
-        .highlight-numbers-layout .number-label {
-            font-size: 26px;
-            font-weight: 600;
-            color: #f5f5f5;
-            margin-top: 15px;
-        }
+        .highlight-numbers-layout { display: flex; align-items: center; gap: 60px; }
+        .highlight-numbers-layout > div:first-child { flex: 0 0 35%; text-align: center; }
+        .highlight-numbers-layout .number { color: #deff9a; font-size: 150px; font-weight: 700; line-height: 1; }
+        .highlight-numbers-layout .number-label { font-size: 26px; font-weight: 600; color: #f5f5f5; margin-top: 15px; }
 
-        /* Section Title */
-        .section-title-layout {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-            text-align: center;
-        }
+        /* Section Title & QA */
+        .section-title-layout { align-items: center; display: flex; flex-direction: column; height: 100%; justify-content: center; text-align: center; }
         .section-title-layout h2 { font-size: 60px; margin-bottom: 20px; color: #deff9a; }
-        .section-title-layout p { font-size: 26px; margin: 0 auto; max-width: 800px; color: #f5f5f5; }
         .section-title-layout hr { background-color: #deff9a; border: none; height: 4px; margin: 30px auto; width: 120px; }
-
-        /* Q&A / Ending */
-        .qa-layout {
-            text-align: center;
-            width: 100%;
-        }
+        .qa-layout { text-align: center; width: 100%; }
         .qa-layout h2 { font-size: 80px; margin-bottom: 25px; color: #deff9a; }
-        .qa-layout p { font-size: 26px; color: #f5f5f5; line-height: 1.5; }
         .qa-layout .contact-info { color: #daffde; font-size: 24px; margin-top: 45px; }
 
-        /* Print Button & Print Styles */
+        /* Print Button */
         .print-btn {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            background-color: #deff9a;
-            color: #050505;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(222, 255, 154, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            position: fixed; bottom: 40px; left: 40px; background-color: #deff9a; color: #050505; border: none; padding: 15px 30px; border-radius: 50px; font-size: 20px; font-family: 'Cairo', sans-serif; font-weight: 700; cursor: pointer; box-shadow: 0 5px 20px rgba(222, 255, 154, 0.4); z-index: 1000; transition: all 0.3s ease; display: flex; align-items: center; gap: 12px;
         }
-        .print-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(222, 255, 154, 0.6);
-        }
+        .print-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(222, 255, 154, 0.6); }
 
         @media print {
-            body {
-                background-color: #050505;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                padding: 0;
-                gap: 0;
-            }
-            .print-btn {
-                display: none; /* Hide the button in the final PDF */
-            }
-            .slide-container {
-                page-break-after: always; /* Force each slide to a new page */
-                box-shadow: none;
-                margin: 0;
-                border-radius: 0;
-                width: 100vw;
-                height: 100vh;
-            }
+            body { background-color: #050505; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0; gap: 0; }
+            .print-btn { display: none; }
+            .slide-container { page-break-after: always; box-shadow: none; margin: 0; border-radius: 0; width: 100vw; height: 100vh; }
         }
     </style>
 </head>
@@ -303,20 +108,20 @@
 <!-- SLIDE 1 -->
 <div class="slide-container">
   <div class="title-layout">
-    <h1>هندسة <span>المبيعات</span> ونمو التجارة الإلكترونية</h1>
-    <p class="subtitle">خطة استراتيجية لرفع مبيعات متجركم على منصتي "سلة" و "Amazon"<br>ربط التسويق الذكي بالأتمتة (AI Automation) لتقليل تكلفة الاستحواذ.</p>
-    <div style="margin-top: 50px; color: #deff9a; font-size: 22px; font-weight: bold;">إعداد: خالد بخيت - أخصائي نمو وأنظمة إيرادات</div>
+    <h1>استراتيجية <span>تطوير الأعمال</span> (B2B)</h1>
+    <p class="subtitle">خطة استحواذ لاستقطاب عيادات الأسنان والجلدية وتفعيل اشتراكاتهم على المنصة.<br>مبنية على أهداف واضحة لزيادة حصتكم السوقية في القطاع الطبي.</p>
+    <div style="margin-top: 50px; color: #deff9a; font-size: 22px; font-weight: bold;">إعداد: خالد بخيت - أخصائي تطوير أعمال العيادات</div>
   </div>
 </div>
 
-<!-- SLIDE 2: Fixed Bleed Image Layout with your photo -->
+<!-- SLIDE 2: Why Me -->
 <div class="slide-container bleed-image-layout">
   <div class="content-container">
     <h2 class="slide-title">الرسالة التوظيفية:<br>لماذا <span>أنا؟</span></h2>
     <div>
-      <p style="color: #f5f5f5; font-size: 24px; font-weight: bold; margin-bottom: 20px;">أغلب المتاجر تهدر ميزانياتها الإعلانية بسبب انفصال التسويق عن المبيعات.</p>
-      <p style="margin-bottom: 15px;">أنا لا أكتفي بإطلاق الحملات الإعلانية؛ أنا أبني <strong>"أنظمة إيرادات"</strong> متكاملة. من خلال خبرتي السابقة مع المتاجر الإلكترونية، لاحظت أن الزيارات لا تعني أرباحاً إذا كان هناك تسرب في رحلة العميل.</p>
-      <p>وظيفتي هي إيقاف هذا النزيف. أربط التسويق الرقمي وأنظمة الـ CRM بالذكاء الاصطناعي لتحويل النقرات إلى مبيعات مؤكدة، وخفض تكلفة الاستحواذ (CAC) بشكل جذري.</p>
+      <p style="color: #f5f5f5; font-size: 24px; font-weight: bold; margin-bottom: 20px;">أنا لا أتحدث عن المبيعات نظرياً؛ أنا أستهدف وأغلق صفقات مع عيادات الخليج يومياً.</p>
+      <p style="margin-bottom: 15px;">من خلال دوري الحالي في هندسة أنظمة نمو العيادات (Grow50X)، أتعامل بشكل مباشر مع ملاك عيادات الأسنان والجلدية. أفهم تماماً معاناتهم مع تسرب المرضى وجدولة المواعيد.</p>
+      <p>وظيفتي هنا ستكون تحويل هذه المعرفة إلى <strong>أرقام مبيعات لمنصتكم</strong>. سأستخدم خبرتي في المبيعات، التسويق الرقمي، وبرنامج الإكسل لإنشاء قوائم عملاء محتملين، تقديم عروض (Demos) تقنع العيادات بالاشتراك، وإغلاق الصفقات.</p>
     </div>
   </div>
   <div class="image-container">
@@ -324,98 +129,88 @@
   </div>
 </div>
 
-<!-- SLIDE 3 -->
+<!-- SLIDE 3: The Funnel -->
 <div class="slide-container tile-layout">
-  <h2 class="slide-title">خطة العمل: <span>نظام النمو الرباعي 2026</span></h2>
+  <h2 class="slide-title">مسار المبيعات: <span>تحقيق الـ KPIs</span></h2>
   <div class="tiled-content">
     <div class="tile">
       <div class="title-container">
-        <p class="main-title">1. تحسين المتجر (Salla & Amazon)</p>
-        <span class="icon-container"><i class="fa-solid fa-cart-shopping"></i></span>
+        <p class="main-title">1. بناء القوائم والتواصل</p>
+        <span class="icon-container"><i class="fa-solid fa-database"></i></span>
       </div>
-      <p class="tile-content">تطبيق SEO للكلمات المفتاحية ذات النية الشرائية العالية (High-Intent). تحسين صفحات المنتجات لدعم التجارة الاجتماعية وزيادة التحويل العضوي.</p>
+      <p class="tile-content">استخدام مهارات البحث والـ Excel لبناء قواعد بيانات مستهدفة لعيادات الأسنان والجلدية، وبدء التواصل الفعّال لكسر الجليد وتحديد المواعيد.</p>
     </div>
     <div class="tile">
       <div class="title-container">
-        <p class="main-title">2. الأتمتة واسترجاع السلال</p>
-        <span class="icon-container"><i class="fa-solid fa-robot"></i></span>
+        <p class="main-title">2. العروض التقديمية (Demos)</p>
+        <span class="icon-container"><i class="fa-solid fa-desktop"></i></span>
       </div>
-      <p class="tile-content">التخصيص المدعوم بالذكاء الاصطناعي (AI Personalization). تفعيل روبوتات واتساب لاسترجاع السلال المتروكة وبناء برامج ولاء ترفع من القيمة الدائمة للعميل.</p>
+      <p class="tile-content">تنفيذ عروض مرئية مبسطة تركز على "العائد من الاستثمار للعيادة" (تقليل غياب المرضى وزيادة الزيارات) بدلاً من مجرد سرد ميزات المنصة التقنية.</p>
     </div>
     <div class="tile">
       <div class="title-container">
-        <p class="main-title">3. الإعلانات والمزايدة الذكية</p>
-        <span class="icon-container"><i class="fa-solid fa-chart-line"></i></span>
+        <p class="main-title">3. تفعيل التجربة المجانية</p>
+        <span class="icon-container"><i class="fa-solid fa-user-check"></i></span>
       </div>
-      <p class="tile-content">استخدام المزايدة الذكية في الإعلانات المدفوعة، وإدارة إعلانات أمازون الداخلية للسيطرة على تكلفة النقرة (CPC) واستهداف الشرائح الأكثر تفاعلاً.</p>
+      <p class="tile-content">التغلب على التردد لدى مدراء العيادات عبر تقديم فترة التجربة كحل خالٍ من المخاطر، مع المتابعة اللصيقة لضمان حصولهم على القيمة من اليوم الأول.</p>
     </div>
     <div class="tile">
       <div class="title-container">
-        <p class="main-title">4. صناعة محتوى إعلاني بيعي</p>
-        <span class="icon-container"><i class="fa-solid fa-video"></i></span>
+        <p class="main-title">4. الإغلاق وجمع الملاحظات</p>
+        <span class="icon-container"><i class="fa-solid fa-handshake"></i></span>
       </div>
-      <p class="tile-content">إنتاج (1-2) فيديو إعلاني أسبوعياً بجودة عالية. دمج الذكاء الاصطناعي مع مشاهد واقعية لتقديم إعلانات تزيد من ثقة العميل وتحفز الشراء المباشر.</p>
+      <p class="tile-content">تحويل العيادة إلى عميل دافع، بناء علاقة طويلة الأمد، ونقل ملاحظات السوق الحقيقية للإدارة لتحسين المنتج المستمر.</p>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 4 -->
+<!-- SLIDE 4: Execution -->
 <div class="slide-container">
   <div class="two-column">
     <div class="content-container" style="width: 55%;">
-      <h2 class="slide-title">آلية التنفيذ <span>(أول 60 يوماً)</span></h2>
+      <h2 class="slide-title">خطة التنفيذ <span>(أول 60 يوماً)</span></h2>
       <ul class="bullet-list">
-        <li><strong>المرحلة الأولى (الأساس والأتمتة - 30 يوماً):</strong><br>تحليل متجر سلة وأمازون. تفعيل أدوات التخصيص. إعداد بكسل التتبع وضبط رسائل الواتساب/البريد لاسترجاع السلال المتروكة فوراً.</li>
-        <li><strong>المرحلة الثانية (الهجوم والتوسع - 30 يوماً):</strong><br>إطلاق إعلانات التجارة الاجتماعية. إعادة الاستهداف (Retargeting) المتقدم لزوار الشهر الأول لرفع نسبة الإغلاق.</li>
-        <li><strong>المحتوى المستمر (الواقعي):</strong><br>إنتاج وإطلاق 1 إلى 2 حملة فيديو إعلانية أسبوعياً، تعتمد على الذكاء الاصطناعي لتحسين الجودة وتقليل تكلفة الإنتاج بشكل عملي.</li>
+        <li><strong>أول 15 يوماً (التنقيب - Prospecting):</strong><br>جمع وتصنيف بيانات 100+ عيادة مستهدفة عبر الإكسل. تجهيز نصوص التواصل (Scripts) التي تخاطب احتياجات أطباء الأسنان والجلدية.</li>
+        <li><strong>يوم 16 إلى 30 (العرض والتجربة):</strong><br>بدء الاتصالات اليومية. الهدف هو تحويل 20% من الاتصالات إلى مكالمات Demo، ونقلهم فوراً لتفعيل التجربة على المنصة.</li>
+        <li><strong>الشهر الثاني (الإغلاق - Closing):</strong><br>التركيز على المتابعة (Follow-ups) للعيادات في فترة التجربة. تذليل العقبات التقنية، وإغلاق الصفقات لتحقيق هدف المبيعات الشهري.</li>
       </ul>
     </div>
     <div class="content-container image-container-rounded" style="width: 45%;">
-        <!-- صورة احترافية للوحة تحكم وتحليلات -->
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="لوحة تحكم وتحليلات مبيعات">
+        <!-- صورة تعبر عن الرعاية الصحية والأعمال -->
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="اجتماع مبيعات طبي B2B">
     </div>
   </div>
 </div>
 
-<!-- SLIDE 5 -->
+<!-- SLIDE 5: Metrics -->
 <div class="slide-container">
   <div>
-    <h2 class="slide-title">لغة الأرقام <span>(نتائج سابقة)</span></h2>
+    <h2 class="slide-title">لغة الأرقام <span>(التركيز على الـ KPIs)</span></h2>
     <div class="highlight-numbers-layout">
       <div>
-        <div class="number">70%</div>
-        <div class="number-label">انخفاض في تكلفة النقرة</div>
+        <div class="number">B2B</div>
+        <div class="number-label">Sales & Growth</div>
       </div>
       <div>
-        <h3 style="margin-bottom: 10px;">متجر My Home (Shopify)</h3>
-        <p style="margin-bottom: 25px;">بصفتي أخصائي التسويق الرقمي، قمت بهندسة حملات الاستهداف لتتوافق مع رحلة المشتري. النتيجة كانت تخفيض تكلفة الاستحواذ بشكل تفوق على المنافسين في السوق بنسبة تصل لـ 70%.</p>
+        <h3 style="margin-bottom: 10px;">خبرة القطاع الطبي</h3>
+        <p style="margin-bottom: 25px;">أنا لا أبدأ من الصفر. فهمي لاحتياجات عيادات الأسنان والجلدية يقلل من دورة المبيعات (Sales Cycle)، ويجعلني قادراً على الإقناع من المكالمة الأولى.</p>
         
-        <h3 style="margin-bottom: 10px;">أتمتة المبيعات والنمو</h3>
-        <p>تصميم أنظمة تؤتمت دورة حياة العميل، حيث حققنا زيادة في معدلات التحويل والمبيعات بنسبة تتجاوز 30% فقط عبر إحكام مسارات المبيعات ورسائل الاسترجاع الآلية.</p>
+        <h3 style="margin-bottom: 10px;">التسويق والإكسل في خدمة المبيعات</h3>
+        <p>استخدام مهاراتي في التسويق الرقمي لتوليد عملاء محتملين للعيادة (في العروض البيعية) ومهاراتي المتقدمة في الإكسل لتتبع الأداء بدقة وتحليل نسب التحويل للإدارة.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 6 -->
-<div class="slide-container">
-  <div class="section-title-layout">
-    <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 65px; color: #deff9a; margin-bottom: 25px;"></i>
-    <h2>الإبداع المرئي بـ <span>الذكاء الاصطناعي</span></h2>
-    <p>أمتلك المهارة التقنية لخفض تكاليف الإنتاج الإعلامي من خلال توليد وتحريك العناصر بالذكاء الاصطناعي، ودمجها بلقطات حقيقية لإنتاج إعلانات عالية التأثير مصممة خصيصاً لمنصات (TikTok & Snapchat) لرفع معدل النقر.</p>
-    <hr>
-  </div>
-</div>
-
-<!-- SLIDE 7 -->
+<!-- SLIDE 6: CTA -->
 <div class="slide-container">
   <div class="qa-layout">
     <h2>لنبدأ <span>العمل</span></h2>
-    <p>أنا جاهز لتحمل مسؤولية نمو مبيعاتكم بشكل كامل.<br>دعنا نحدد مكالمة قصيرة لمناقشة التفاصيل وبدء التنفيذ.</p>
+    <p>أنا جاهز لتحمل ضغط الأهداف وتحويل العيادات إلى مستخدمين فعليين لمنصتكم.<br>دعنا نحدد مكالمة قصيرة لعمل "Demo عكسي" أثبت لكم فيه مهاراتي في العرض.</p>
     <div class="contact-info">
       <strong>البريد:</strong> khalid@kbakhit.online<br>
       <strong>الهاتف/واتساب:</strong> +20-1000868667<br>
-      <strong>الموقع:</strong> www.kbakhit.online
+      <strong>لينكد إن:</strong> عبر ملفي المرفق في بعيد
     </div>
   </div>
 </div>
